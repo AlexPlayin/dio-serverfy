@@ -1,0 +1,15 @@
+{
+  "auth_token": "AAAA",
+
+  "snapshot_name": "terraria",
+
+  "droplet_name": "terrariaserver",
+
+  "message": {
+    "off": "Off",
+    "on": "On",
+    "starting": "Starting..",
+    "shuttingdown": "Shutting down"
+  }
+
+}

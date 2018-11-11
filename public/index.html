@@ -1,0 +1,38 @@
+<html>
+<body>
+<a href="#" onclick="sendStart();">Press me to start</a>
+<p id="ip"> </p>
+<p id="status"> </p>
+<script>
+
+  function sendStart() {
+  const Http = new XMLHttpRequest();
+  const url='/start';
+  Http.open("GET", url);
+  Http.send();
+  console.log("Sent request"); }
+
+
+
+
+  setInterval(checkIP, 2000);
+
+  function checkIP() {
+    const Http = new XMLHttpRequest();
+    const url='/ip';
+    Http.open("GET", url);
+    Http.send();
+    Http.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+           // Typical action to be performed when the document is ready:
+           var data = JSON.parse(Http.responseText);
+           document.getElementById("ip").innerHTML = "IP: " + data.ip;
+           document.getElementById("status").innerHTML = "Status: " + data.status;
+
+        }
+    };
+  }
+
+</script>
+</body>
+</html>
